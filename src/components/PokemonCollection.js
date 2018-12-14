@@ -12,10 +12,7 @@ class PokemonCollection extends React.Component {
   render() {
     return (
       <div>
-        <Card.Group itemsPerRow={6}>
-          <Header>Hello From Pokemon Collection</Header>
-          {this.renderPocketMonsters()}
-        </Card.Group>
+        <Card.Group itemsPerRow={6}>{this.renderPocketMonsters()}</Card.Group>
       </div>
     );
   }

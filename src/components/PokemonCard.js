@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "semantic-ui-react";
+import { Card, Header } from "semantic-ui-react";
 
 class PokemonCard extends React.Component {
   constructor() {
@@ -19,9 +19,59 @@ class PokemonCard extends React.Component {
 
   mapOverStat = () => {
     return this.props.pokemon.stats.map(stat => {
-      if (stat.name === "hp") {
-        return <div> HP {stat.value}</div>;
+      // if (stat.name === "hp") {
+      switch (stat.name) {
+        case "special-defense":
+          return (
+            <div>
+              {" "}
+              Special-Defense <Header as="h4">{stat.value}</Header>
+            </div>
+          );
+          break;
+        case "special-attack":
+          return (
+            <div>
+              {" "}
+              Special-Attack <Header as="h4">{stat.value}</Header>
+            </div>
+          );
+          break;
+        case "defense":
+          return (
+            <div>
+              {" "}
+              Defense <Header as="h4">{stat.value}</Header>
+            </div>
+          );
+          break;
+        case "attack":
+          return (
+            <div>
+              {" "}
+              Attack <Header as="h4">{stat.value}</Header>
+            </div>
+          );
+          break;
+        case "speed":
+          return (
+            <div>
+              {" "}
+              Speed <Header as="h4">{stat.value}</Header>
+            </div>
+          );
+          break;
+        case "hp":
+          return (
+            <div>
+              {" "}
+              HP <Header as="h4">{stat.value}</Header>
+            </div>
+          );
+          break;
       }
+      return <div> {stat.value}</div>;
+      // }
     });
   };
   render() {
@@ -39,7 +89,9 @@ class PokemonCard extends React.Component {
             {this.setImage()}
           </div>
           <div className="content">
-            <div className="header">{this.props.pokemon.name}</div>
+            <div className="header">
+              <Header as="h3">{this.props.pokemon.name.toUpperCase()}</Header>
+            </div>
           </div>
           <div className="extra content">
             <span>
